@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Walking Man</title>
+  <style type="text/css">
+    #walker {
+      width: 320px;
+      height: 320px;
+      background-image: url("Pixel Walk.png");
+      background-size: cover;
+      position: absolute;
+      top:200px;
+
+      animation: Walk 1s steps(8) infinite,
+      Moving 3s linear 0s infinite normal both running}
+
+    #walker.off {
+      animation-play-state: paused;
+    }
+
+    @keyframes Walk {
+      0%{background-position:0px}
+      100%{background-position:-2560px}
+    }
+
+    @keyframes Moving {
+      0%{transform: translateX(-350px);}
+      100%{transform: translate(1500px);}
+    }
+
+    #road {
+      position: absolute;
+      height: 100px;
+      width: 100%;
+      background-color: gray;
+      top: 400px;
+      left: 0px;
+    }
+
+    h1{
+      text-align: center;
+      font-size: 100px;
+      text-decoration: underline;
+      font-family: fantasy;
+    }
+  </style>
+
+
+  <script>
+    function toggleClass(el) {
+      if (el.className == "on") {
+        el.className = "off";
+      } else {
+        el.className = "on";
+      }
+    }
+  </script>
+
+
+</head>
+
+<body>
+    <h1>The Walking Man</h1>
+    <div id="road"></div>
+    <div id="walker" class="on" onclick="toggleClass(this)"></div>
+</body>
+</html>
